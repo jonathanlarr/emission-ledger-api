@@ -16,6 +16,10 @@ Once you have Poetry installed, follow these steps:
 poetry install
 ```
 
+## Env File
+
+Copy the example environment (env.example) variables file to your own .env file and modify it with your local settings.
+
 ## Run API
 
 Once you install dependencies, you can run the API with this command:
