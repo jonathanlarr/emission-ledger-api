@@ -25,6 +25,12 @@ async def send_authorization_to_dock(payload: dict) -> None:
         response.raise_for_status()
 
 async def authorize_purchase(account_id: UUID4, amount: int, purchase_request: dict) -> PurchaseResponse:
+    """
+    Authorize a purchase request.
+    Decline the purchase if the card is inactive, the balance is insufficient, or the transaction is international.
+    """
+    if purchase_request['transaction_indicators']['is_international'] is True:
+        return PurchaseResponse(response=ResponseStatus.DECLINED, reason="International transactions are not allowed")
     card_detail = await get_card_detail(account_id)
     if card_detail['data']['is_active'] is False:
         response = PurchaseResponse(response=ResponseStatus.DECLINED, reason="Card is inactive")
