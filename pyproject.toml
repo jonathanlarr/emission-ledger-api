@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "emission-ledger"
+version = "0.1.0"
+description = "Ledger API example"
+authors = ["Jonathan Larraguivel <jlarraguivel@blumonpay.com.mx>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.111.0"
+pydantic-settings = "^2.2.1"
+httpx = "^0.27.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
